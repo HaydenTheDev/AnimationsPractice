@@ -11,6 +11,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private TextView txtHelloWorld;
+    private TextView txtHiWorld;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Initialize
         txtHelloWorld = findViewById(R.id.txtHelloWorld);
+        txtHiWorld = findViewById(R.id.txtHiWorld);
 
         //Create onClick for the text
         txtHelloWorld.setOnClickListener(new View.OnClickListener() {
@@ -25,8 +27,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
         //Log for button
                 Log.i("MyTag", "This text was clicked.");
-                txtHelloWorld.animate().rotation(10f).setDuration(1000);
+
+                txtHelloWorld.animate().alpha(0f).setDuration(4000);
+
+                txtHiWorld.animate().alpha(1).setDuration(4000);
             }
         });
+
     }
 }
