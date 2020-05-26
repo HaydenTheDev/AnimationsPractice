@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView txtHelloWorld;
     private TextView txtHiWorld;
+
+    private boolean isHelloWorldShowing;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,14 +27,34 @@ public class MainActivity extends AppCompatActivity {
         txtHelloWorld.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-        //Log for button
+                //Log for button
                 Log.i("MyTag", "This text was clicked.");
+                if(isHelloWorldShowing){
+                    animateHello();
+                    isHelloWorldShowing = false;
+                }else if(!isHelloWorldShowing) {
+                    animateHi();
+                    isHelloWorldShowing = true;
+                }
 
-                txtHelloWorld.animate().alpha(0f).setDuration(4000);
-
-                txtHiWorld.animate().alpha(1).setDuration(4000);
             }
         });
 
+
+
+
+
     }
+
+    public void animateHello(){
+        txtHelloWorld.animate().alpha(0f).setDuration(3000);
+        txtHiWorld.animate().alpha(1).setDuration(4000);
+    }
+
+    public void animateHi(){
+        txtHiWorld.animate().alpha(0f).setDuration(3000);
+        txtHelloWorld.animate().alpha(1).setDuration(4000);
+
+    }
+
 }
