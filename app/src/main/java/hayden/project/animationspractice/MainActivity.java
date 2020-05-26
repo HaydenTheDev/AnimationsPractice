@@ -3,6 +3,7 @@ package hayden.project.animationspractice;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -22,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
         txtHelloWorld.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+        //Log for button
+                Log.i("MyTag", "This text was clicked.");
+                txtHelloWorld.animate().rotation(10f).setDuration(1000);
             }
         });
     }
