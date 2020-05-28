@@ -67,8 +67,10 @@ public class MainActivity extends AppCompatActivity {
         txtAnimation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                txtAnimation.animate().translationX(3000).setDuration(3000);
-                txtAnimation.animate().translationY(3000).setDuration(3000);
+               // txtAnimation.animate().translationX(100).setDuration(100);
+               // txtAnimation.animate().translationY(100).setDuration(100);
+                txtAnimation.animate().rotation(360).setDuration(7000);
+                txtAnimation.animate().rotationBy(90).setDuration(4000); //would rotate to 90 degree angle
             }
         });
 
@@ -82,13 +84,11 @@ public class MainActivity extends AppCompatActivity {
     public void animateHello(){
         tiger.animate().alpha(0f).setDuration(3000);
         lion.animate().alpha(1).setDuration(4000);
-        lion.animate().translationX(100).setDuration(100);
     }
 
     public void animateHi(){
         lion.animate().alpha(0f).setDuration(3000);
         tiger.animate().alpha(1).setDuration(4000);
-        tiger.animate().translationX(-100).setDuration(100);
 
 
     }
