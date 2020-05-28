@@ -53,13 +53,25 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("MyTag", "This text was clicked.");
 
                 if(isHelloWorldShowing){
+                    animateHi();
+                    isHelloWorldShowing = false;
+                }else if(!isHelloWorldShowing) {
+                    animateHello();
+                    isHelloWorldShowing = true;
+                }
+
+            }
+        });
+        lion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isHelloWorldShowing){
                     animateHello();
                     isHelloWorldShowing = false;
                 }else if(!isHelloWorldShowing) {
                     animateHi();
                     isHelloWorldShowing = true;
                 }
-
             }
         });
 
@@ -69,24 +81,21 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                // txtAnimation.animate().translationX(100).setDuration(100);
                // txtAnimation.animate().translationY(100).setDuration(100);
-                txtAnimation.animate().rotation(360).setDuration(7000);
-                txtAnimation.animate().rotationBy(90).setDuration(4000); //would rotate to 90 degree angle
+                // txtAnimation.animate().rotation(360).setDuration(7000);
+                //txtAnimation.animate().rotationBy(90).setDuration(4000); //would rotate to 90 degree angle
             }
         });
-
-
-
-
-
 
     }
 
     public void animateHello(){
+        tiger.animate().rotationX(200).translationY(500).setDuration(1000);
         tiger.animate().alpha(0f).setDuration(3000);
         lion.animate().alpha(1).setDuration(4000);
     }
 
     public void animateHi(){
+        lion.animate().rotationY(200).translationX(500).setDuration(1000);
         lion.animate().alpha(0f).setDuration(3000);
         tiger.animate().alpha(1).setDuration(4000);
 
